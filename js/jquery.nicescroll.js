@@ -1963,7 +1963,7 @@
     this._bind = function(el,name,fn,bubble) {  // primitive bind
       self.events.push({e:el,n:name,f:fn,b:bubble,q:false});
       if (el.addEventListener) {
-        el.addEventListener(name,fn,bubble||false);
+        el.addEventListener(name,fn,bubble||{passive: false});
       }
       else if (el.attachEvent) {
         el.attachEvent("on"+name,fn);
@@ -3181,4 +3181,3 @@
   }
   
 })( jQuery );
-  
